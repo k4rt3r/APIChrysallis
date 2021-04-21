@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CHRYSALLISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="assistir">
+    <Key>
+      <PropertyRef Name="id_soci" />
+      <PropertyRef Name="id_esdeveniment" />
+    </Key>
+    <Property Name="id_soci" Type="int" Nullable="false" />
+    <Property Name="id_esdeveniment" Type="int" Nullable="false" />
+    <Property Name="quantitat_persones" Type="int" Nullable="false" />
+    <Property Name="valoracio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comunitats">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comunitats_socis">
+    <Key>
+      <PropertyRef Name="id_soci" />
+      <PropertyRef Name="id_comunitat" />
+    </Key>
+    <Property Name="id_soci" Type="int" Nullable="false" />
+    <Property Name="id_comunitat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="documents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ruta" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_esdeveniment" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="esdeveniments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcio" Type="varchar" MaxLength="140" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="adreca" Type="varchar" MaxLength="140" Nullable="false" />
+    <Property Name="id_comunitat" Type="int" Nullable="false" />
+    <Property Name="latitud" Type="varchar" MaxLength="10" />
+    <Property Name="longitud" Type="varchar" MaxLength="10" />
+    <Property Name="quantitat_max" Type="int" />
+    <Property Name="quantitat_mínima" Type="int" />
+    <Property Name="preu" Type="float" />
+    <Property Name="pagament" Type="bit" Nullable="false" />
+    <Property Name="data_max" Type="date" />
+    <Property Name="cont_assitents" Type="int" />
+    <Property Name="meet" Type="varchar" MaxLength="256" />
+    <Property Name="id_localidad" Type="int" />
+    <Property Name="hora_max" Type="time" Precision="7" />
+    <Property Name="imatge" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="localitats">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_provincia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="menors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="menors_socis">
+    <Key>
+      <PropertyRef Name="id_soci" />
+      <PropertyRef Name="id_menor" />
+    </Key>
+    <Property Name="id_soci" Type="int" Nullable="false" />
+    <Property Name="id_menor" Type="int" Nullable="false" />
+    <Property Name="relacio" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="preferits">
+    <Key>
+      <PropertyRef Name="id_soci" />
+      <PropertyRef Name="id_esdeveniment" />
+    </Key>
+    <Property Name="id_soci" Type="int" Nullable="false" />
+    <Property Name="id_esdeveniment" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="provincies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_comunitat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rols">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="socis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="num" Type="int" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="cognoms" Type="varchar" MaxLength="256" />
+    <Property Name="actiu" Type="bit" Nullable="false" />
+    <Property Name="telefon1" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="telefon2" Type="varchar" MaxLength="9" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="dni" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="contrasenya" Type="varchar" MaxLength="255" />
+    <Property Name="data_naixement" Type="date" />
+    <Property Name="data_baixa" Type="date" />
+    <Property Name="data_alta" Type="date" Nullable="false" />
+    <Property Name="permis_app" Type="bit" Nullable="false" />
+    <Property Name="codi_postal" Type="varchar" MaxLength="5" />
+    <Property Name="id_localitat" Type="int" Nullable="false" />
+    <Property Name="id_comunidad" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="usuaris">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contrasenya" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_socio" Type="int" />
+    <Property Name="actiu" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuaris_comunitats">
+    <Key>
+      <PropertyRef Name="id_usuari" />
+      <PropertyRef Name="id_comunitat" />
+    </Key>
+    <Property Name="id_usuari" Type="int" Nullable="false" />
+    <Property Name="id_comunitat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="valoracions">
+    <Key>
+      <PropertyRef Name="id_soci" />
+      <PropertyRef Name="id_esdeveniment" />
+    </Key>
+    <Property Name="id_soci" Type="int" Nullable="false" />
+    <Property Name="id_esdeveniment" Type="int" Nullable="false" />
+    <Property Name="valoracio" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_assistir_esdeveniments">
+    <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="1" />
+    <End Role="assistir" Type="Self.assistir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="esdeveniments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assistir">
+        <PropertyRef Name="id_esdeveniment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assistir_socis">
+    <End Role="socis" Type="Self.socis" Multiplicity="1" />
+    <End Role="assistir" Type="Self.assistir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assistir">
+        <PropertyRef Name="id_soci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_comunitats_socis_comunitats">
+    <End Role="comunitats" Type="Self.comunitats" Multiplicity="1" />
+    <End Role="comunitats_socis" Type="Self.comunitats_socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comunitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comunitats_socis">
+        <PropertyRef Name="id_comunitat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_comunitats_socis_socis">
+    <End Role="socis" Type="Self.socis" Multiplicity="1" />
+    <End Role="comunitats_socis" Type="Self.comunitats_socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comunitats_socis">
+        <PropertyRef Name="id_soci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documents_esdeveniments">
+    <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="1" />
+    <End Role="documents" Type="Self.documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="esdeveniments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="documents">
+        <PropertyRef Name="id_esdeveniment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_esdeveniments_comunitats">
+    <End Role="comunitats" Type="Self.comunitats" Multiplicity="1" />
+    <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comunitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="esdeveniments">
+        <PropertyRef Name="id_comunitat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_esdeveniments_localitats">
+    <End Role="localitats" Type="Self.localitats" Multiplicity="0..1" />
+    <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="esdeveniments">
+        <PropertyRef Name="id_localidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_localitats_provincies">
+    <End Role="provincies" Type="Self.provincies" Multiplicity="1" />
+    <End Role="localitats" Type="Self.localitats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provincies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="localitats">
+        <PropertyRef Name="id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_menors_socis_menors">
+    <End Role="menors" Type="Self.menors" Multiplicity="1" />
+    <End Role="menors_socis" Type="Self.menors_socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="menors_socis">
+        <PropertyRef Name="id_menor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_menors_socis_socis">
+    <End Role="socis" Type="Self.socis" Multiplicity="1" />
+    <End Role="menors_socis" Type="Self.menors_socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="menors_socis">
+        <PropertyRef Name="id_soci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_preferits_esdeveniments">
+    <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="1" />
+    <End Role="preferits" Type="Self.preferits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="esdeveniments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="preferits">
+        <PropertyRef Name="id_esdeveniment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_preferits_socis">
+    <End Role="socis" Type="Self.socis" Multiplicity="1" />
+    <End Role="preferits" Type="Self.preferits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="preferits">
+        <PropertyRef Name="id_soci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provincies_comunitats">
+    <End Role="comunitats" Type="Self.comunitats" Multiplicity="1" />
+    <End Role="provincies" Type="Self.provincies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comunitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provincies">
+        <PropertyRef Name="id_comunitat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_socis_comunitats">
+    <End Role="comunitats" Type="Self.comunitats" Multiplicity="0..1" />
+    <End Role="socis" Type="Self.socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comunitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="socis">
+        <PropertyRef Name="id_comunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_socis_localitats">
+    <End Role="localitats" Type="Self.localitats" Multiplicity="1" />
+    <End Role="socis" Type="Self.socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="socis">
+        <PropertyRef Name="id_localitat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuaris_comunitats_comunitats">
+    <End Role="comunitats" Type="Self.comunitats" Multiplicity="1" />
+    <End Role="usuaris_comunitats" Type="Self.usuaris_comunitats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comunitats">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuaris_comunitats">
+        <PropertyRef Name="id_comunitat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuaris_comunitats_usuaris">
+    <End Role="usuaris" Type="Self.usuaris" Multiplicity="1" />
+    <End Role="usuaris_comunitats" Type="Self.usuaris_comunitats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuaris">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuaris_comunitats">
+        <PropertyRef Name="id_usuari" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuaris_rols">
+    <End Role="rols" Type="Self.rols" Multiplicity="1" />
+    <End Role="usuaris" Type="Self.usuaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rols">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuaris">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuaris_socis">
+    <End Role="socis" Type="Self.socis" Multiplicity="0..1" />
+    <End Role="usuaris" Type="Self.usuaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuaris">
+        <PropertyRef Name="id_socio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_valoracions_esdeveniments">
+    <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="1" />
+    <End Role="valoracions" Type="Self.valoracions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="esdeveniments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="valoracions">
+        <PropertyRef Name="id_esdeveniment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_valoracions_socis">
+    <End Role="socis" Type="Self.socis" Multiplicity="1" />
+    <End Role="valoracions" Type="Self.valoracions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="valoracions">
+        <PropertyRef Name="id_soci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CHRYSALLISModelStoreContainer">
+    <EntitySet Name="assistir" EntityType="Self.assistir" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comunitats" EntityType="Self.comunitats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comunitats_socis" EntityType="Self.comunitats_socis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="documents" EntityType="Self.documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="esdeveniments" EntityType="Self.esdeveniments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="localitats" EntityType="Self.localitats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="menors" EntityType="Self.menors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="menors_socis" EntityType="Self.menors_socis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preferits" EntityType="Self.preferits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="provincies" EntityType="Self.provincies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rols" EntityType="Self.rols" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="socis" EntityType="Self.socis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuaris" EntityType="Self.usuaris" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuaris_comunitats" EntityType="Self.usuaris_comunitats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="valoracions" EntityType="Self.valoracions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_assistir_esdeveniments" Association="Self.FK_assistir_esdeveniments">
+      <End Role="esdeveniments" EntitySet="esdeveniments" />
+      <End Role="assistir" EntitySet="assistir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assistir_socis" Association="Self.FK_assistir_socis">
+      <End Role="socis" EntitySet="socis" />
+      <End Role="assistir" EntitySet="assistir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comunitats_socis_comunitats" Association="Self.FK_comunitats_socis_comunitats">
+      <End Role="comunitats" EntitySet="comunitats" />
+      <End Role="comunitats_socis" EntitySet="comunitats_socis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comunitats_socis_socis" Association="Self.FK_comunitats_socis_socis">
+      <End Role="socis" EntitySet="socis" />
+      <End Role="comunitats_socis" EntitySet="comunitats_socis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documents_esdeveniments" Association="Self.FK_documents_esdeveniments">
+      <End Role="esdeveniments" EntitySet="esdeveniments" />
+      <End Role="documents" EntitySet="documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_esdeveniments_comunitats" Association="Self.FK_esdeveniments_comunitats">
+      <End Role="comunitats" EntitySet="comunitats" />
+      <End Role="esdeveniments" EntitySet="esdeveniments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_esdeveniments_localitats" Association="Self.FK_esdeveniments_localitats">
+      <End Role="localitats" EntitySet="localitats" />
+      <End Role="esdeveniments" EntitySet="esdeveniments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_localitats_provincies" Association="Self.FK_localitats_provincies">
+      <End Role="provincies" EntitySet="provincies" />
+      <End Role="localitats" EntitySet="localitats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_menors_socis_menors" Association="Self.FK_menors_socis_menors">
+      <End Role="menors" EntitySet="menors" />
+      <End Role="menors_socis" EntitySet="menors_socis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_menors_socis_socis" Association="Self.FK_menors_socis_socis">
+      <End Role="socis" EntitySet="socis" />
+      <End Role="menors_socis" EntitySet="menors_socis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_preferits_esdeveniments" Association="Self.FK_preferits_esdeveniments">
+      <End Role="esdeveniments" EntitySet="esdeveniments" />
+      <End Role="preferits" EntitySet="preferits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_preferits_socis" Association="Self.FK_preferits_socis">
+      <End Role="socis" EntitySet="socis" />
+      <End Role="preferits" EntitySet="preferits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provincies_comunitats" Association="Self.FK_provincies_comunitats">
+      <End Role="comunitats" EntitySet="comunitats" />
+      <End Role="provincies" EntitySet="provincies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_socis_comunitats" Association="Self.FK_socis_comunitats">
+      <End Role="comunitats" EntitySet="comunitats" />
+      <End Role="socis" EntitySet="socis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_socis_localitats" Association="Self.FK_socis_localitats">
+      <End Role="localitats" EntitySet="localitats" />
+      <End Role="socis" EntitySet="socis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuaris_comunitats_comunitats" Association="Self.FK_usuaris_comunitats_comunitats">
+      <End Role="comunitats" EntitySet="comunitats" />
+      <End Role="usuaris_comunitats" EntitySet="usuaris_comunitats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuaris_comunitats_usuaris" Association="Self.FK_usuaris_comunitats_usuaris">
+      <End Role="usuaris" EntitySet="usuaris" />
+      <End Role="usuaris_comunitats" EntitySet="usuaris_comunitats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuaris_rols" Association="Self.FK_usuaris_rols">
+      <End Role="rols" EntitySet="rols" />
+      <End Role="usuaris" EntitySet="usuaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuaris_socis" Association="Self.FK_usuaris_socis">
+      <End Role="socis" EntitySet="socis" />
+      <End Role="usuaris" EntitySet="usuaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_valoracions_esdeveniments" Association="Self.FK_valoracions_esdeveniments">
+      <End Role="esdeveniments" EntitySet="esdeveniments" />
+      <End Role="valoracions" EntitySet="valoracions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_valoracions_socis" Association="Self.FK_valoracions_socis">
+      <End Role="socis" EntitySet="socis" />
+      <End Role="valoracions" EntitySet="valoracions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

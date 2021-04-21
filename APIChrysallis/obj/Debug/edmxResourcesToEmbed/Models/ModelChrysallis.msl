@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CHRYSALLISModelStoreContainer" CdmEntityContainer="CHRYSALLISEntities">
+    <EntitySetMapping Name="assistir">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.assistir">
+        <MappingFragment StoreEntitySet="assistir">
+          <ScalarProperty Name="id_soci" ColumnName="id_soci" />
+          <ScalarProperty Name="id_esdeveniment" ColumnName="id_esdeveniment" />
+          <ScalarProperty Name="quantitat_persones" ColumnName="quantitat_persones" />
+          <ScalarProperty Name="valoracio" ColumnName="valoracio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comunitats">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.comunitats">
+        <MappingFragment StoreEntitySet="comunitats">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="documents">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.documents">
+        <MappingFragment StoreEntitySet="documents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="ruta" ColumnName="ruta" />
+          <ScalarProperty Name="id_esdeveniment" ColumnName="id_esdeveniment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="localitats">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.localitats">
+        <MappingFragment StoreEntitySet="localitats">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id_provincia" ColumnName="id_provincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menors">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.menors">
+        <MappingFragment StoreEntitySet="menors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menors_socis">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.menors_socis">
+        <MappingFragment StoreEntitySet="menors_socis">
+          <ScalarProperty Name="id_soci" ColumnName="id_soci" />
+          <ScalarProperty Name="id_menor" ColumnName="id_menor" />
+          <ScalarProperty Name="relacio" ColumnName="relacio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provincies">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.provincies">
+        <MappingFragment StoreEntitySet="provincies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id_comunitat" ColumnName="id_comunitat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rols">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.rols">
+        <MappingFragment StoreEntitySet="rols">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="socis">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.socis">
+        <MappingFragment StoreEntitySet="socis">
+          <ScalarProperty Name="id_comunidad" ColumnName="id_comunidad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="cognoms" ColumnName="cognoms" />
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+          <ScalarProperty Name="telefon1" ColumnName="telefon1" />
+          <ScalarProperty Name="telefon2" ColumnName="telefon2" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+          <ScalarProperty Name="data_naixement" ColumnName="data_naixement" />
+          <ScalarProperty Name="data_baixa" ColumnName="data_baixa" />
+          <ScalarProperty Name="data_alta" ColumnName="data_alta" />
+          <ScalarProperty Name="permis_app" ColumnName="permis_app" />
+          <ScalarProperty Name="codi_postal" ColumnName="codi_postal" />
+          <ScalarProperty Name="id_localitat" ColumnName="id_localitat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="valoracions">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.valoracions">
+        <MappingFragment StoreEntitySet="valoracions">
+          <ScalarProperty Name="id_soci" ColumnName="id_soci" />
+          <ScalarProperty Name="id_esdeveniment" ColumnName="id_esdeveniment" />
+          <ScalarProperty Name="valoracio" ColumnName="valoracio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="comunitats_socis" TypeName="CHRYSALLISModel.comunitats_socis" StoreEntitySet="comunitats_socis">
+      <EndProperty Name="comunitats">
+        <ScalarProperty Name="id" ColumnName="id_comunitat" />
+      </EndProperty>
+      <EndProperty Name="socis">
+        <ScalarProperty Name="id" ColumnName="id_soci" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="esdeveniments">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.esdeveniments">
+        <MappingFragment StoreEntitySet="esdeveniments">
+          <ScalarProperty Name="imatge" ColumnName="imatge" />
+          <ScalarProperty Name="hora_max" ColumnName="hora_max" />
+          <ScalarProperty Name="id_localidad" ColumnName="id_localidad" />
+          <ScalarProperty Name="meet" ColumnName="meet" />
+          <ScalarProperty Name="cont_assitents" ColumnName="cont_assitents" />
+          <ScalarProperty Name="data_max" ColumnName="data_max" />
+          <ScalarProperty Name="pagament" ColumnName="pagament" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+          <ScalarProperty Name="quantitat_mínima" ColumnName="quantitat_mínima" />
+          <ScalarProperty Name="quantitat_max" ColumnName="quantitat_max" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="id_comunitat" ColumnName="id_comunitat" />
+          <ScalarProperty Name="adreca" ColumnName="adreca" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descripcio" ColumnName="descripcio" />
+          <ScalarProperty Name="titol" ColumnName="titol" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="preferits" TypeName="CHRYSALLISModel.preferits" StoreEntitySet="preferits">
+      <EndProperty Name="socis">
+        <ScalarProperty Name="id" ColumnName="id_soci" />
+      </EndProperty>
+      <EndProperty Name="esdeveniments">
+        <ScalarProperty Name="id" ColumnName="id_esdeveniment" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuaris">
+      <EntityTypeMapping TypeName="CHRYSALLISModel.usuaris">
+        <MappingFragment StoreEntitySet="usuaris">
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+          <ScalarProperty Name="id_socio" ColumnName="id_socio" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="usuaris_comunitats" TypeName="CHRYSALLISModel.usuaris_comunitats" StoreEntitySet="usuaris_comunitats">
+      <EndProperty Name="usuaris">
+        <ScalarProperty Name="id" ColumnName="id_usuari" />
+      </EndProperty>
+      <EndProperty Name="comunitats">
+        <ScalarProperty Name="id" ColumnName="id_comunitat" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
