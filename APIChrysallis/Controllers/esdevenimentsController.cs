@@ -19,6 +19,8 @@ namespace APIChrysallis.Controllers
         private CHRYSALLISEntities db = new CHRYSALLISEntities();
 
         // GET: api/esdeveniments
+        [HttpGet]
+        [Route("api/esdeveniments/")]
         public IQueryable<esdeveniments> Getesdeveniments()
         {
             //cuando vaya a buscar un evento solo encontrará un evento
@@ -27,17 +29,13 @@ namespace APIChrysallis.Controllers
         }
 
         // GET: api/esdeveniments/5
+        [HttpGet]
+        [Route("api/esdeveniments/id/{id}")]
         [ResponseType(typeof(esdeveniments))]
         public async Task<IHttpActionResult> Getesdeveniments(int id)
         {
             IHttpActionResult result;
             esdeveniments esdeveniments = await db.esdeveniments.FindAsync(id);
-            /*
-            esdeveniments evento = db.esdeveniments
-                .Include("localitat")
-                .Where(c => c.id == id)
-                .FirstOrDefaultAsync();
-            */
 
             if (esdeveniments == null)
             {
@@ -55,7 +53,7 @@ namespace APIChrysallis.Controllers
         [Route("api/esdeveniments/titol/{titol}")]
         public async Task<IHttpActionResult> FindByNombre (String nombre)
         {
-            IHttpActionResult result;
+            //IHttpActionResult result;
             db.Configuration.LazyLoadingEnabled = false;
 
             List<esdeveniments> _eventos = db.esdeveniments

@@ -38,6 +38,7 @@ namespace APIChrysallis.Controllers
 
         // PUT: api/assistirs/5
         [ResponseType(typeof(void))]
+        
         public async Task<IHttpActionResult> Putassistir(int id, assistir assistir)
         {
             if (!ModelState.IsValid)
@@ -102,10 +103,13 @@ namespace APIChrysallis.Controllers
         }
 
         // DELETE: api/assistirs/5
-        [ResponseType(typeof(assistir))]
-        public async Task<IHttpActionResult> Deleteassistir(int id)
+        [HttpPost]
+        [Route("api/assistirs/delete/{id_soci}/{id_esdeveniment}")]
+        public async Task<IHttpActionResult> Eraseassistir(int id_soci, int id_esdeveniment)
         {
-            assistir assistir = await db.assistir.FindAsync(id);
+            assistir assistir = db.assistir
+                .Where(c => c.id_esdeveniment==id_esdeveniment &&
+                c.id_soci==id_soci).FirstOrDefault();
             if (assistir == null)
             {
                 return NotFound();

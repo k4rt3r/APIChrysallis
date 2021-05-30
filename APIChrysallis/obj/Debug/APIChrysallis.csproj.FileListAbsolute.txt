@@ -195,3 +195,4 @@ C:\Users\Joan\Downloads\APIChrysallis-20210415T075239Z-001\APIChrysallis\APIChry
 C:\Users\Joan\Downloads\APIChrysallis-20210415T075239Z-001\APIChrysallis\APIChrysallis\obj\Debug\APIChrysallis.csproj.CopyComplete
 C:\Users\Joan\Downloads\APIChrysallis-20210415T075239Z-001\APIChrysallis\APIChrysallis\obj\Debug\APIChrysallis.dll
 C:\Users\Joan\Downloads\APIChrysallis-20210415T075239Z-001\APIChrysallis\APIChrysallis\obj\Debug\APIChrysallis.pdb
+C:\Users\Joan\Downloads\APIChrysallis-20210415T075239Z-001\APIChrysallis\APIChrysallis\obj\Debug\APIChrysallis.csprojAssemblyReference.cache

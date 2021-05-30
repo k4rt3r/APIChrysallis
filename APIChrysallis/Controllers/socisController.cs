@@ -18,9 +18,29 @@ namespace APIChrysallis.Controllers
         private CHRYSALLISEntities db = new CHRYSALLISEntities();
 
         // GET: api/socis
+        [HttpGet]
+        [Route("api/socis/")]
+        [ResponseType(typeof(socis))]
         public IQueryable<socis> Getsocis()
         {
+            //cuando vaya a buscar un socio solo encontrará un socio
+            db.Configuration.LazyLoadingEnabled = false;
             return db.socis;
+        }
+
+        // GET: api/socis/email/contrasenya
+        [HttpGet]
+        [Route("api/socis/{email}/{contrasenya}/")]
+        public async Task<IHttpActionResult> GetsocisLogin(string email, string contrasenya)
+        {
+            //cuando vaya a buscar un socio solo encontrará un socio
+            db.Configuration.LazyLoadingEnabled = false;
+
+            socis _socio = db.socis
+                .Where(c => c.email.Equals(email) &&
+                c.contrasenya.Equals(contrasenya)).FirstOrDefault();
+
+            return Ok(_socio);
         }
 
         // GET: api/socis/5
